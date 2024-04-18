@@ -35,7 +35,8 @@ ADD CONSTRAINT fk_entity_id FOREIGN KEY (entity_id) REFERENCES entity(id);
 -- Заповнення колонки country_id 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE infectious_cases_normal i, entity e  
-SET i.entity_id = e.id WHERE e.code = i.code;
+SET i.entity_id = e.id 
+WHERE e.code = i.code AND e.country = i.Entity;
 SET SQL_SAFE_UPDATES = 1;
 
 -- Видалення непотрібних колонок
@@ -49,7 +50,8 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value 
+	AVG(number_rabies) AS avg_value,
+    SUM(number_rabies) AS sum_value
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
 GROUP BY id;
@@ -59,7 +61,8 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value 
+	AVG(number_rabies) AS avg_value,
+    SUM(number_rabies) AS sum_value 
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
 GROUP BY id
@@ -70,7 +73,8 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value 
+	AVG(number_rabies) AS avg_value,
+    SUM(number_rabies) AS sum_value 
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
 GROUP BY id
