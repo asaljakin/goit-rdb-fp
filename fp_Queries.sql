@@ -50,7 +50,7 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value,
+    AVG(number_rabies) AS avg_value,
     SUM(number_rabies) AS sum_value
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
@@ -61,7 +61,7 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value,
+    AVG(number_rabies) AS avg_value,
     SUM(number_rabies) AS sum_value 
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
@@ -73,7 +73,7 @@ SELECT
 	id, 
     MAX(number_rabies) AS max_value, 
     MIN(number_rabies) AS min_value, 
-	AVG(number_rabies) AS avg_value,
+    AVG(number_rabies) AS avg_value,
     SUM(number_rabies) AS sum_value 
 FROM infectious_cases_normal
 WHERE number_rabies IS NOT NULL AND number_rabies <> ''
